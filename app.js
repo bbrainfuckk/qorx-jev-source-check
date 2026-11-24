@@ -2,6 +2,7 @@
 
 function showExercise(evidence, requests) {
   const byId = id => document.getElementById(id);
+  const nextStep = byId("next-step");
   const names = Object.fromEntries(evidence.excerpts.map(item => [item.id, item.path.split("/").pop()]));
   names.none_of_these = "Neither excerpt";
   let active = evidence.questions[0];
@@ -41,6 +42,7 @@ function showExercise(evidence, requests) {
     const correct = candidate === active.expected;
     const message = correct ? "Correct. " : "The supported choice is “" + names[active.expected] + "”. ";
     byId("answer").textContent = message + active.explanation;
+    if (nextStep) nextStep.hidden = false;
   }
 
   function render() {
@@ -61,6 +63,7 @@ function showExercise(evidence, requests) {
     });
     byId("choices").replaceChildren(...buttons);
     byId("answer").textContent = "";
+    if (nextStep) nextStep.hidden = true;
     const body = requests[active.id][order];
     byId("payload").textContent = body;
     if (downloadUrl) URL.revokeObjectURL(downloadUrl);

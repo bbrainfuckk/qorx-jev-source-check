@@ -38,6 +38,13 @@ figure pre { margin: 0; padding: 16px 14px; overflow-x: auto; overscroll-behavio
 .choices button[aria-pressed="true"] { color: #071017; background: var(--ice); border-color: var(--ice); }
 #answer { margin: 0; }
 #answer:not(:empty) { margin-top: 16px; padding: 7px 13px; border-left: 3px solid var(--ice); max-width: 85ch; }
+#next-step { margin-top: 16px; padding: 14px 16px; border: 1px solid var(--edge); border-radius: 7px; background: #121820; max-width: 85ch; }
+#next-step h2 { margin: 0 0 5px; font-size: 19px; line-height: 1.25; }
+#next-step p { margin: 0 0 10px; color: var(--muted); }
+.next-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 14px; }
+.next-actions a { display: inline-flex; align-items: center; min-height: 44px; }
+.store-link { padding: 6px 12px; border-radius: 5px; color: #071017; background: var(--ice); font-weight: 650; text-decoration: none; }
+#next-step .trial { margin: 7px 0 0; font-size: 14px; }
 details { border-top: 1px solid var(--edge); padding: 13px 0; }
 details:first-of-type { margin-top: 27px; }
 summary { cursor: pointer; font-weight: 600; }

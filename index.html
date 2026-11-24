@@ -13,8 +13,8 @@
   <meta property="og:image:alt" content="Qorx source check showing two pinned FastAPI excerpts side by side.">
   <title>Source check · Qorx + Jev</title>
   <link rel="icon" href="qorx.png">
-  <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=2">
+  <script src="app.js?v=2" defer></script>
 </head>
 <body>
   <main>
@@ -34,8 +34,17 @@
       <div class="files" id="files"></div>
       <div class="choices" id="choices" role="group" aria-label="Choose the supporting excerpt"></div>
       <p id="answer" role="status" aria-live="polite"></p>
+      <section id="next-step" aria-labelledby="next-step-title" hidden>
+        <h2 id="next-step-title">Try one lookup in your own repo</h2>
+        <p>Use Qorx Void on Windows with Codex or Claude Code. Pick a function you know and ask, “Where is <code>function_name</code> defined?”</p>
+        <div class="next-actions">
+          <a class="store-link" href="https://apps.microsoft.com/detail/9NDC66CH9VL8?cid=qorx_jev_sourcecheck">Get Qorx Void on Microsoft Store</a>
+          <a href="https://qorx.idra-ai.com/docs/quickstart.html">Setup guide</a>
+        </div>
+        <p class="trial">24-hour trial. $15/month if you subscribe.</p>
+      </section>
       <details id="request"><summary>Inspect the Jev request</summary>
-        <p>This is the request the local script prepares for this question and file order. The page runs offline after loading. To get a new Jev decision, run the script with your own TypeSafe account.</p>
+        <p>This is the request the local script prepares for this question and file order. No Jev key is needed for this browser exercise. To get a new Jev decision, run the script with your own TypeSafe account.</p>
         <pre tabindex="0" aria-label="Jev request JSON"><code id="payload"></code></pre>
         <a id="download" download="jev-request.json">Download this request</a>
       </details>
@@ -46,7 +55,7 @@
     </section>
     <p id="load-status" role="status">Loading the source excerpts…</p>
     <noscript><p>JavaScript is needed for the interactive questions. The same examples and local runner are available in the GitHub repository.</p></noscript>
-    <footer><span>Qorx + Jev</span><a href="https://apps.microsoft.com/detail/9NDC66CH9VL8">Qorx Void for Windows ↗</a><a href="https://discord.gg/Cnvy5wCsTA">Qorx Discord ↗</a></footer>
+    <footer><span>Qorx + Jev</span><a href="https://apps.microsoft.com/detail/9NDC66CH9VL8?cid=qorx_jev_sourcecheck">Qorx Void for Windows ↗</a><a href="https://discord.gg/Cnvy5wCsTA">Qorx Discord ↗</a></footer>
   </main>
 </body>
 </html>
