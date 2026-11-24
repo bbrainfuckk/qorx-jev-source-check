@@ -1,0 +1,62 @@
+:root {
+  color-scheme: dark;
+  --bg: #090b10;
+  --ink: #f0f2f7;
+  --muted: #adb6c4;
+  --edge: #35404e;
+  --ice: #99def3;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 "Geist", "Segoe UI", system-ui, sans-serif; }
+main { width: min(1250px, 100%); margin: auto; padding: 24px clamp(16px, 4.4vw, 64px) 35px; }
+a { color: var(--ice); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+button { font: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--ice); outline-offset: 4px; }
+.mast { display: flex; align-items: center; gap: 18px; padding: 0 0 20px; border-bottom: 1px solid var(--edge); }
+.brand { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); text-decoration: none; font-size: 23px; letter-spacing: -.055em; }
+.brand img { border-radius: 7px; }
+.product { padding-left: 18px; border-left: 1px solid var(--edge); color: var(--muted); }
+.repo { margin-left: auto; font-size: 14px; }
+.question-nav { display: inline-flex; gap: 4px; margin: 36px 0 15px; }
+.question-nav button, #reverse { background: transparent; color: var(--muted); border: 1px solid transparent; padding: 7px 11px; border-radius: 4px; font-size: 13px; }
+.question-nav button[aria-pressed="true"] { background: #242d3a; color: var(--ink); }
+button:hover, a:hover { filter: brightness(1.17); }
+h1 { max-width: 890px; margin: 0; font-size: clamp(35px, 5.3vw, 67px); line-height: 1.04; font-weight: 580; letter-spacing: -.054em; text-wrap: balance; }
+.intro { margin: 16px 0 30px; color: var(--muted); font-size: 17px; }
+.source-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 7px; color: var(--muted); font: 12px/1.4 "Geist Mono", ui-monospace, monospace; }
+#reverse { color: var(--ice); padding-right: 0; }
+.files { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+figure { min-width: 0; margin: 0; background: #121820; border: 1px solid var(--edge); border-radius: 7px; overflow: hidden; }
+figcaption { padding: 12px 14px; background: #19212c; display: flex; align-items: center; justify-content: space-between; gap: 8px; font: 13px/1.4 "Geist Mono", ui-monospace, monospace; }
+figcaption a { min-width: 0; color: var(--ink); overflow-wrap: anywhere; }
+figcaption span { white-space: nowrap; color: var(--muted); }
+figure pre { margin: 0; padding: 16px 14px; overflow-x: auto; overscroll-behavior-x: contain; font: 13px/1.7 "Geist Mono", ui-monospace, monospace; tab-size: 4; }
+.line { display: block; }
+.line-number { display: inline-block; min-width: 4.4ch; text-align: right; color: #8d9bad; margin-right: 1.5ch; user-select: none; }
+.choices { display: flex; gap: 8px; flex-wrap: wrap; margin: 18px 0 0; }
+.choices button { color: var(--ink); border: 1px solid #546376; background: #171e29; padding: 8px 18px; border-radius: 5px; }
+.choices button[aria-pressed="true"] { color: #071017; background: var(--ice); border-color: var(--ice); }
+#answer { margin: 0; }
+#answer:not(:empty) { margin-top: 16px; padding: 7px 13px; border-left: 3px solid var(--ice); max-width: 85ch; }
+details { border-top: 1px solid var(--edge); padding: 13px 0; }
+details:first-of-type { margin-top: 27px; }
+summary { cursor: pointer; font-weight: 600; }
+details p { color: var(--muted); max-width: 78ch; }
+details pre { padding: 14px; max-height: 300px; overflow: auto; background: #121820; font-size: 13px; }
+details a { font-size: 14px; }
+footer { margin-top: 31px; border-top: 1px solid var(--edge); padding-top: 17px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; font-size: 13px; }
+footer span { color: var(--muted); margin-right: auto; }
+@media (max-width: 800px) {
+  .files { grid-template-columns: 1fr; }
+  .question-nav { margin-top: 23px; }
+  .intro { margin-bottom: 17px; }
+  main { padding-top: 15px; }
+  figure pre { padding-block: 10px; }
+}
+@media (max-width: 420px) {
+  .mast { gap: 10px; }
+  .product { padding-left: 10px; }
+  .choices { gap: 5px; }
+  .choices button { padding: 8px 9px; font-size: 14px; }
+  .source-head { font-size: 11px; }
+}

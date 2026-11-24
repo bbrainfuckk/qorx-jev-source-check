@@ -1,0 +1,53 @@
+{
+  "repository": "fastapi/fastapi",
+  "commit": "7a0a3f0b286c6c865cf4398ea0e957a87b8bffa4",
+  "retriever": "AGPL Qorx 1.0.7 strict-answer located indexed ranges. The displayed lines were selected manually within those ranges and checked against pinned upstream source.",
+  "excerpts": [
+    {
+      "id": "routing",
+      "path": "fastapi/routing.py",
+      "start": 3152,
+      "lines": [
+        "        route = APIWebSocketRoute(",
+        "            self.prefix + path,",
+        "            endpoint=endpoint,",
+        "            name=name,",
+        "            dependencies=current_dependencies,",
+        "            dependency_overrides_provider=self.dependency_overrides_provider,",
+        "        )",
+        "        self.routes.append(route)",
+        "        self._mark_routes_changed()"
+      ]
+    },
+    {
+      "id": "applications",
+      "path": "fastapi/applications.py",
+      "start": 1125,
+      "lines": [
+        "                schema = self.openapi()",
+        "                if root_path and self.root_path_in_servers:",
+        "                    server_urls = {s.get(\"url\") for s in schema.get(\"servers\", [])}",
+        "                    if root_path not in server_urls:",
+        "                        schema = dict(schema)",
+        "                        schema[\"servers\"] = [{\"url\": root_path}] + schema.get(",
+        "                            \"servers\", []",
+        "                        )",
+        "                return JSONResponse(schema)"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "negative",
+      "question": "Which excerpt implements a built-in GraphQL server?",
+      "expected": "none_of_these",
+      "explanation": "The routing code registers a WebSocket route, and the application code returns an OpenAPI schema as JSON."
+    },
+    {
+      "id": "positive",
+      "question": "Which excerpt creates an APIWebSocketRoute and appends it to the router's route list?",
+      "expected": "routing",
+      "explanation": "The routing snippet creates an APIWebSocketRoute and passes it to self.routes.append."
+    }
+  ]
+}

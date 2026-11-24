@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090b10">
+  <meta name="description" content="Read two excerpts of FastAPI, choose which one supports the answer, and inspect the Jev request. An interactive Qorx source check.">
+  <title>Source check · Qorx + Jev</title>
+  <link rel="icon" href="qorx.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="mast">
+      <a class="brand" href="https://qorx.idra-ai.com/"><img src="qorx.png" width="38" height="38" alt=""><b>Qorx</b></a>
+      <span class="product">Source check</span>
+      <a class="repo" href="https://github.com/bbrainfuckk/qorx-jev-source-check">GitHub ↗</a>
+    </header>
+    <section id="exercise" aria-labelledby="question" hidden>
+      <nav class="question-nav" aria-label="Questions">
+        <button type="button" data-question="negative" aria-pressed="true">Question 1</button>
+        <button type="button" data-question="positive" aria-pressed="false">Question 2</button>
+      </nav>
+      <h1 id="question"></h1>
+      <p class="intro">Read the two FastAPI excerpts. Which one gives you enough evidence to answer?</p>
+      <div class="source-head"><span id="ref"></span><button type="button" id="reverse">Swap file order ⇄</button></div>
+      <div class="files" id="files"></div>
+      <div class="choices" id="choices" role="group" aria-label="Choose the supporting excerpt"></div>
+      <p id="answer" role="status" aria-live="polite"></p>
+      <details id="request"><summary>Inspect the Jev request</summary>
+        <p>This is the request the local script prepares for this question and file order. The page runs offline after loading. To get a new Jev decision, run the script with your own TypeSafe account.</p>
+        <pre tabindex="0" aria-label="Jev request JSON"><code id="payload"></code></pre>
+        <a id="download" download="jev-request.json">Download this request</a>
+      </details>
+      <details><summary>How this relates to Qorx Flow</summary>
+        <p>This exercise uses two newly selected excerpts from the pinned FastAPI source. In an earlier Qorx Flow test, Jev saw six excerpts and chose <code>none_of_these</code> in both candidate orders. The reported confidence was 0.92 and 0.94. This page grades your choice against the two excerpts on screen.</p>
+        <a href="https://qorx.idra-ai.com/docs/decide.html#decide-example">Read the original Flow case ↗</a>
+      </details>
+    </section>
+    <p id="load-status" role="status">Loading the source excerpts…</p>
+    <noscript><p>JavaScript is needed for the interactive questions. The same examples and local runner are available in the GitHub repository.</p></noscript>
+    <footer><span>Qorx + Jev</span><a href="https://apps.microsoft.com/detail/9NDC66CH9VL8">Qorx Void for Windows ↗</a><a href="https://discord.gg/Cnvy5wCsTA">Qorx Discord ↗</a></footer>
+  </main>
+</body>
+</html>
