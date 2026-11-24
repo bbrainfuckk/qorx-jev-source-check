@@ -1,6 +1,6 @@
 # Qorx + Jev source check
 
-[Try the two questions in your browser](https://bbrainfuckk.github.io/qorx-jev-source-check/).
+[Try the two questions in your browser](https://qorx.idra-ai.com/labs/jev-source-check/).
 
 A coding agent can retrieve a plausible file and still lack the lines that answer a question. This exercise gives you two short FastAPI excerpts. Choose the one that supports the answer, or choose **Neither excerpt**. Swap the file order, inspect the sources, and download the exact request that the local runner prepares for Jev.
 

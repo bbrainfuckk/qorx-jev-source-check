@@ -90,7 +90,27 @@ async function loadJson(path) {
   return response.json();
 }
 
-Promise.all([loadJson("evidence.json"), loadJson("requests.json")])
+function redirectPublishedExercise() {
+  if (location.origin !== "https://bbrainfuckk.github.io"
+    || !["/qorx-jev-source-check/", "/qorx-jev-source-check/index.html"].includes(location.pathname)) return false;
+  const destination = new URL("https://qorx.idra-ai.com/labs/jev-source-check/");
+  const source = new URLSearchParams(location.search);
+  const allowed = {
+    utm_source: ["github", "youtube", "discord", "hashnode", "reddit"],
+    utm_campaign: ["qorx_codex_showcase", "qorx_github_repo", "qorx_indiehackers", "qorx_jev_hashnode",
+      "qorx_jev_short", "qorx_jev_sourcecheck", "qorx_jev_threads", "qorx_kilo_showcase", "qorx_observable_audit",
+      "qorx_reddit_mcp", "qorx_site_trial"],
+  };
+  for (const [key, values] of Object.entries(allowed)) {
+    const candidates = source.getAll(key);
+    if (candidates.length === 1 && values.includes(candidates[0])) destination.searchParams.set(key, candidates[0]);
+  }
+  if (["#exercise", "#question", "#request"].includes(location.hash)) destination.hash = location.hash;
+  location.replace(destination.href);
+  return true;
+}
+
+if (!redirectPublishedExercise()) Promise.all([loadJson("evidence.json"), loadJson("requests.json")])
   .then(([evidence, requests]) => showExercise(evidence, requests))
   .catch(() => {
     document.getElementById("load-status").textContent = "The source excerpts could not be loaded. Reload this page or open the GitHub repository above.";
